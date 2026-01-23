@@ -1,0 +1,21 @@
+{
+  "name": "04tut",
+  "version": "1.0.0",
+  "description": "Express tutorial",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "express": "^5.2.1",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
