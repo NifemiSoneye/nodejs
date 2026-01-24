@@ -6,3 +6,8 @@
 20260124	10:18:40	ab335236-d6f9-40b5-b3a6-39d1a0456d35	 GET	undefined	/css/style.css
 20260124	10:25:36	334b055c-891c-4d82-86f4-6f008d7d555b	 GET	undefined	/
 20260124	10:25:36	4aa7e8b5-a7e3-4df2-8493-170f0c4c7cf7	 GET	undefined	/css/style.css
+20260124	10:28:47	03bcf00d-5695-4a5e-a535-98098061f43a	 GET	undefined	/
+20260124	10:28:47	a907c378-d246-41de-9249-67c394c54360	 GET	undefined	/css/style.css
+20260124	10:29:35	e6776c2f-5a12-491c-9a87-f9f966bbdb41	 GET	undefined	/css/style.css
+20260124	10:29:35	9d762434-61a5-4912-a747-1ae1e4cdcadc	 GET	undefined	/.well-known/appspecific/com.chrome.devtools.json
+20260124	10:29:46	a7956e86-11a8-4a02-b746-97fccee22846	 GET	undefined	/hello
