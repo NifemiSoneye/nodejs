@@ -15,9 +15,7 @@ app.use(logger);
 
 app.use(cors(corsOptions));
 
-//built in middleware for handling urlencoded data
-// in other words , form data:
-//'content-type' : application/x-www-form-urlencoded
+//built in middleware for handling urlencoded form data
 
 app.use(express.urlencoded({ extended: false }));
 
@@ -28,13 +26,10 @@ app.use(express.json());
 //serve static files
 
 app.use("/", express.static(path.join(__dirname, "public")));
-app.use("/subdir/", express.static(path.join(__dirname, "public")));
 
 //routes
 
 app.use("/", require("./routes/root"));
-
-app.use("/subdir", require("./routes/subdir"));
 app.use("/employees", require("./routes/api/employees"));
 
 //app.use('/')
