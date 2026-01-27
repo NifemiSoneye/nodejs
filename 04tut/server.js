@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const corsOptions = require("./config/corsOptions");
 const { logEvents, logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const PORT = process.env.PORT || 3500;
@@ -11,21 +12,7 @@ const PORT = process.env.PORT || 3500;
 app.use(logger);
 
 // stands for cross origin resource sharing
-const whitelist = [
-  "https://claude.ai",
-  "http://127.0.0.1:5500",
-  "http://localhost:3500",
-];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) != -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
+
 app.use(cors(corsOptions));
 
 //built in middleware for handling urlencoded data

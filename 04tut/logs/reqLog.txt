@@ -52,3 +52,6 @@
 20260126	12:10:44	de21a07e-7423-42b1-a6c0-13edba67343c	 GET	undefined	/img/Annotation-2026-01-21-030236.png
 20260126	12:10:53	cda8be8d-7b98-4acd-aa33-82c1a62f7702	 GET	undefined	/index
 20260126	12:10:53	b0c154c6-1714-4b02-8868-bb60cc685a22	 GET	undefined	/css/style.css
+20260127	05:42:56	9f0ddd90-6f5f-4c81-90f3-6825ed573f79	 GET	undefined	/employees/1
+20260127	05:43:11	81510a51-29fd-4d98-8fbc-46adab036f7e	 GET	undefined	/index
+20260127	05:43:17	32b4b3f8-47b5-4488-a421-e90011c56fbd	 GET	undefined	/dave
