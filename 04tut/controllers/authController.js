@@ -5,7 +5,7 @@ const usersDB = {
   },
 };
 
-const bcrypt = require("bcrpt");
+const bcrypt = require("bcrypt");
 
 const handleLogin = async (req, res) => {
   const { user, pwd } = req.body;
@@ -15,4 +15,14 @@ const handleLogin = async (req, res) => {
       .json({ Message: "Username and password are required." });
   const foundUser = usersDB.users.find((person) => person.username === user);
   if (!foundUser) return res.sendStatus(401); // unauthorized
+  //evaluate password
+  const match = await bcrypt.compare(pwd, foundUser.password);
+  if (match) {
+    // create JWTs
+    res.json({ success: `User ${user} is logged in` });
+  } else {
+    res.sendStatus(401);
+  }
 };
+
+module.exports = { handleLogin };

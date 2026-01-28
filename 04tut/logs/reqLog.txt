@@ -96,3 +96,7 @@
 20260128	10:35:43	bfbd1fc1-a651-4e11-8065-6c13718fe458	 POST	undefined	/register
 20260128	10:36:38	52830af4-86f2-4159-bf0f-3dc4f6a8b09f	 POST	undefined	/register
 20260128	10:37:39	285752e2-2811-4568-8da1-39487ef99b5d	 POST	undefined	/register
+20260128	10:48:15	f97d43c6-75ec-4c1e-ac1d-97c1a606bc80	 POST	undefined	/auth
+20260128	10:50:29	4a109072-fd5c-4dae-9480-73ad784ccb3a	 POST	undefined	/auth
+20260128	10:50:46	68553a98-8d58-4892-8b70-3e373c919016	 POST	undefined	/auth
+20260128	10:51:10	febc0d17-b460-4d7f-8551-7ae680e6cc1c	 POST	undefined	/register
