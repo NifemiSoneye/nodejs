@@ -13,6 +13,10 @@ const PORT = process.env.PORT || 3500;
 
 app.use(logger);
 
+//Handle options credentials
+
+app.use(credentials);
+
 // stands for cross origin resource sharing
 
 app.use(cors(corsOptions));
