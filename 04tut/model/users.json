@@ -1,1 +1,11 @@
-[{"username":"walt2","password":"$2b$10$qRWCg2QP7h.MFIMAlusuze71ys1BPXE3gdYKjeqqP8PtVSuDDsiQK"},{"username":"walt1","password":"$2b$10$qBncl15vRPj7v8vT0NnsUOhLMQ0RPSWM8Ah2Bjj..w15zVkfYdoMS","refreshToken":""}]
+[
+  {
+    "username": "walt2",
+    "password": "$2b$10$qRWCg2QP7h.MFIMAlusuze71ys1BPXE3gdYKjeqqP8PtVSuDDsiQK"
+  },
+  {
+    "username": "walt1",
+    "password": "$2b$10$qBncl15vRPj7v8vT0NnsUOhLMQ0RPSWM8Ah2Bjj..w15zVkfYdoMS",
+    "refreshToken": ""
+  }
+]
