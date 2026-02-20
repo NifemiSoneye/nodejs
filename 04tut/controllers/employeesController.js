@@ -11,7 +11,7 @@ const getAllEmployees = (req, res) => {
 
 const createNewEmployee = (req, res) => {
   const newEmployee = {
-    id: data.employee[data.employees.length - 1].id + 1 || 1,
+    id: data.employees[data.employees.length - 1].id + 1 || 1,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
   };

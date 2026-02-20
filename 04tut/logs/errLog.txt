@@ -4,3 +4,8 @@
 20260130	22:02:03	d0e38adf-32cb-4ef6-99b6-c32f92d86053	 SyntaxError : Expected ',' or '}' after property value in JSON at position 37 (line 1 column 38)
 20260130	22:16:01	3eb80328-2892-4d93-839b-10833cef3e85	 TypeError : Cannot read properties of null (reading 'name')
 20260130	22:16:35	a647b965-d0d9-4023-a932-92b08f07c4e8	 TypeError : Cannot read properties of null (reading 'name')
+20260220	03:16:17	2ecb65ac-1647-43b8-b786-2a61f20b4170	 TypeError : rolesArray.includes(...).find is not a function
+20260220	03:19:33	5d925b39-f57b-43d7-bd9f-70c56d5a318e	 SyntaxError : Unexpected token 'D', ..."stname" : Doe}" is not valid JSON
+20260220	03:20:08	b9c06345-3d51-4f11-a530-25e345e19ce7	 TypeError : Cannot read properties of undefined (reading '1')
+20260220	03:22:42	5b0b3ed1-8559-4402-910a-bbe3a16e42c0	 TypeError : Cannot read properties of undefined (reading '1')
+20260220	03:24:48	b2893b23-3651-402d-a5bf-863409d2592f	 TypeError : Cannot read properties of undefined (reading '1')
