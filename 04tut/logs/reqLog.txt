@@ -215,3 +215,7 @@
 20260220	03:28:22	d8de1cf9-2a95-4693-9863-d1ae3d2e7af5	 DELETE	undefined	/employees
 20260220	03:28:28	3e7d8b98-ce45-4df8-9b66-3f4588fadbe1	 POST	undefined	/employees
 20260220	03:28:36	9fb16112-c332-421e-8738-856de1c12c05	 POST	undefined	/auth
+20260223	10:30:16	ae4a23b0-7bd3-4945-8aba-90366db02065	 POST	undefined	/register
+20260223	10:31:01	1a8a2584-7fb7-491f-a5be-10991bfbf1bf	 POST	undefined	/register
+20260223	10:37:04	10c1d8e9-f636-49c8-bc72-b899a3fc2637	 POST	undefined	/register
+20260223	10:37:12	dd2bd9f6-c17e-4b79-8010-7aafccef4603	 POST	undefined	/register
