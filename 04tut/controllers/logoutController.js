@@ -4,10 +4,11 @@ const handleLogout = async (req, res) => {
 
   const cookies = req.cookies;
   if (!cookies?.jwt) return res.sendStatus(204); //No content
-  const refreshToken = cookies.jwt;
-
+  const refreshToken = cookies.jwt.trim();
+  console.log("Looking for token:", refreshToken);
   //Is refreshToken in db
   const foundUser = await User.findOne({ refreshToken }).exec();
+  console.log("Found user:", foundUser);
   if (!foundUser) {
     res.clearCookie(
       "jwt",
