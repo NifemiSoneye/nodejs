@@ -59,10 +59,6 @@ const deleteEmployee = async (req, res) => {
   }
   const result = await employee.deleteOne({ _id: req.body.id });
   res.json(result);
-
-  const getEmployee = (req, res) => {
-    res.json({ id: req.params.id });
-  };
 };
 
 const getEmployee = async (req, res) => {

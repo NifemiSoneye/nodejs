@@ -30,7 +30,6 @@ const handleNewUser = async (req, res) => {
   } catch (err) {
     console.error("Error:", err); // Change this to show full error
     res.status(500).json({ message: err.message });
-    res.status(500).json({ message: err.message });
   }
 };
 
