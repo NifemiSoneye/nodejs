@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
+import mongoose, { Schema, Document } from "mongoose";
+import { IUser } from "../types/index";
 
-const Schema = mongoose.Schema;
+interface IUserDocument extends IUser, Document {}
 
-const userSchema = new Schema({
+const userSchema = new Schema<IUserDocument>({
   username: {
     type: String,
     required: true,
@@ -26,4 +27,4 @@ const userSchema = new Schema({
   refreshToken: String,
 });
 
-module.exports = mongoose.model("User", userSchema);
+export default mongoose.model<IUserDocument>("User", userSchema);

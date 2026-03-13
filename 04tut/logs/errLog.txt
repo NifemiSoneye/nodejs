@@ -15,3 +15,12 @@
 20260309	06:30:45	4226c4be-c291-4b06-8f1d-94c854382dc9	 Error : Not allowed by CORS
 20260309	06:31:00	146ee813-8b56-4a6f-b20f-66e17a13bef7	 Error : Not allowed by CORS
 20260309	06:31:24	931dbe6d-466c-4c01-8aa2-bc056b6994e8	 Error : Not allowed by CORS
+20260312	11:04:01	58b5e811-d015-496b-9bb2-7f2616bf364d	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
+20260312	11:04:09	6983bec4-3b48-420c-a84b-1778598df38b	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
+20260312	11:04:10	ce82a184-c72e-49e6-833f-16bf8b87a896	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
+20260312	11:04:10	334f8030-47ec-41dd-b9fa-d40d45888235	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
+20260312	11:04:11	e7af34f5-cf7f-4d00-b373-656b7a93c8bd	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
+20260312	11:04:11	7d43e44e-3a2b-4caa-8255-2ad930279a79	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
+20260312	11:04:17	3b925efa-71c4-4e14-9ae9-4a074528e42e	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
+20260312	11:04:33	8ae9b3eb-3090-4eaf-8ab7-186a4eea1cf8	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
+20260312	11:04:34	c7f9a8d9-ee0a-4a51-8912-1cf2ca352cd4	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
