@@ -1,5 +1,7 @@
-const verifyRoles = (...allowedRoles) => {
-  return (req, res, next) => {
+import { Request, Response, NextFunction } from "express";
+
+const verifyRoles = (...allowedRoles: number[]) => {
+  return (req: Request, res: Response, next: NextFunction) => {
     if (!req?.roles) return res.sendStatus(401);
     const rolesArray = [...allowedRoles];
     const result = req.roles
@@ -10,4 +12,4 @@ const verifyRoles = (...allowedRoles) => {
   };
 };
 
-module.exports = verifyRoles;
+export default verifyRoles;

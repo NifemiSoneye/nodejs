@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import { verify } from "node:crypto";
 
 declare global {
   namespace Express {
