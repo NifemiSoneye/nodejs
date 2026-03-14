@@ -1,16 +1,24 @@
-require("dotenv").config();
-const path = require("path");
-const express = require("express");
+import "dotenv/config";
+import path from "path";
+import express from "express";
+import cors from "cors";
+import corsOptions from "./config/corsOptions";
+import { logEvents, logger } from "./middleware/logEvents";
+import errorHandler from "./middleware/errorHandler";
+import verifyJWT from "./middleware/verifyJWT";
+import cookieParser from "cookie-parser";
+import credentials from "./middleware/credentials";
+import mongoose from "mongoose";
+import connectDB from "./config/dbConn";
+import { Request, Response } from "express";
+import RootRouter from "./routes/root";
+import RegisterRouter from "./routes/register";
+import AuthRouter from "./routes/auth";
+import RefreshRouter from "./routes/refresh";
+import LogoutRouter from "./routes/logout";
+import UsersRouter from "./routes/api/users";
+import EmployeesRouter from "./routes/api/employees";
 const app = express();
-const cors = require("cors");
-const corsOptions = require("./config/corsOptions");
-const { logEvents, logger } = require("./middleware/logEvents");
-const errorHandler = require("./middleware/errorHandler");
-const verifyJWT = require("./middleware/verifyJWT");
-const cookieParser = require("cookie-parser");
-const credentials = require("./middleware/credentials");
-const mongoose = require("mongoose");
-const connectDB = require("./config/dbConn");
 const PORT = process.env.PORT || 3500;
 
 //Connect to MongoDB
@@ -45,18 +53,18 @@ app.use("/", express.static(path.join(__dirname, "public")));
 
 //routes
 
-app.use("/", require("./routes/root"));
-app.use("/register", require("./routes/register"));
-app.use("/auth", require("./routes/auth"));
-app.use("/refresh", require("./routes/refresh"));
-app.use("/logout", require("./routes/logout"));
+app.use("/", RootRouter);
+app.use("/register", RegisterRouter);
+app.use("/auth", AuthRouter);
+app.use("/refresh", RefreshRouter);
+app.use("/logout", LogoutRouter);
 
 app.use(verifyJWT);
-app.use("/users", require("./routes/api/users"));
-app.use("/employees", require("./routes/api/employees"));
+app.use("/users", UsersRouter);
+app.use("/employees", EmployeesRouter);
 
 //app.use('/')
-app.all(/.*/, (req, res) => {
+app.all(/.*/, (req: Request, res: Response) => {
   res.status(404);
   if (req.accepts("html")) {
     res.sendFile(path.join(__dirname, "views", "404.html"));
