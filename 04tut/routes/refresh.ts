@@ -1,7 +1,7 @@
 import express from "express";
-import refreshTokenController from "../controllers/refreshTokenController";
+import { handleRefreshToken } from "../controllers/refreshTokenController";
 const router = express.Router();
 
-router.get("/", refreshTokenController.handleRefreshToken);
+router.get("/", handleRefreshToken);
 
 export default router;

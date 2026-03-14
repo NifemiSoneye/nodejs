@@ -1,12 +1,13 @@
-const User = require("../model/User");
+import User from "../model/User";
+import { Request, Response } from "express";
 
-const getAllUsers = async (req, res) => {
+const getAllUsers = async (req: Request, res: Response) => {
   const users = await User.find();
   if (!users) return res.status(204).json({ message: "No users found" });
   res.json(users);
 };
 
-const deleteUser = async (req, res) => {
+const deleteUser = async (req: Request, res: Response) => {
   if (!req?.body?.id)
     return res.status(400).json({ message: "User ID required" });
   const user = await User.findOne({ _id: req.body.id }).exec();
@@ -19,7 +20,7 @@ const deleteUser = async (req, res) => {
   res.json(result);
 };
 
-const getUser = async (req, res) => {
+const getUser = async (req: Request, res: Response) => {
   if (!req?.params?.id)
     return res.status(400).json({ message: "User ID required" });
   const user = await User.findOne({ _id: req.params.id }).exec();
@@ -31,8 +32,4 @@ const getUser = async (req, res) => {
   res.json(user);
 };
 
-module.exports = {
-  getAllUsers,
-  deleteUser,
-  getUser,
-};
+export { getUser, getAllUsers, deleteUser };

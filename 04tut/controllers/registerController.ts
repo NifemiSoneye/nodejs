@@ -2,7 +2,7 @@ import User from "../model/User";
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 const handleNewUser = async (req: Request, res: Response) => {
-  const { user, pwd }: Record<string, string> = req.body;
+  const { user, pwd }: { user: string; pwd: string } = req.body;
   if (!user || !pwd)
     return res
       .status(400)

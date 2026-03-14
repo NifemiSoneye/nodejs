@@ -1,9 +1,10 @@
-const User = require("../model/User");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+import User from "../model/User";
+import { Request, Response } from "express";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
-const handleLogin = async (req, res) => {
-  const { user, pwd } = req.body;
+const handleLogin = async (req: Request, res: Response) => {
+  const { user, pwd }: { user: string; pwd: string } = req.body;
   if (!user || !pwd)
     return res
       .status(400)
@@ -13,7 +14,7 @@ const handleLogin = async (req, res) => {
   //evaluate password
   const match = await bcrypt.compare(pwd, foundUser.password);
   if (match) {
-    const roles = Object.values(foundUser.roles).filter(Boolean);
+    const roles: number[] = Object.values(foundUser.roles).filter(Boolean);
     // create JWTs
     const accessToken = jwt.sign(
       {
@@ -22,12 +23,12 @@ const handleLogin = async (req, res) => {
           roles: roles,
         },
       },
-      process.env.ACCESS_TOKEN_SECRET,
+      process.env.ACCESS_TOKEN_SECRET as string,
       { expiresIn: "60s" },
     );
     const refreshToken = jwt.sign(
       { username: foundUser.username },
-      process.env.REFRESH_TOKEN_SECRET,
+      process.env.REFRESH_TOKEN_SECRET as string,
       { expiresIn: "1d" },
     );
     //Saving refreshToken with current user
@@ -36,7 +37,7 @@ const handleLogin = async (req, res) => {
     console.log(result);
     res.cookie("jwt", refreshToken, {
       httpOnly: true,
-      sameSite: "Lax",
+      sameSite: "lax",
       secure: false,
       maxAge: 24 * 60 * 60 * 1000,
     });
@@ -46,4 +47,4 @@ const handleLogin = async (req, res) => {
   }
 };
 
-module.exports = { handleLogin };
+export { handleLogin };

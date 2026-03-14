@@ -1,12 +1,13 @@
-const Employee = require("../model/Employee");
-const getAllEmployees = async (req, res) => {
+import Employee from "../model/Employee";
+import { Request, Response } from "express";
+const getAllEmployees = async (req: Request, res: Response) => {
   const employees = await Employee.find();
   if (!employees)
     return res.status(204).json({ message: "No employees found" });
   res.json(employees);
 };
 
-const createNewEmployee = async (req, res) => {
+const createNewEmployee = async (req: Request, res: Response) => {
   if (!req?.body.firstname || !req?.body.lastname) {
     return res
       .status(400)
@@ -20,12 +21,12 @@ const createNewEmployee = async (req, res) => {
     });
 
     res.status(201).json(result);
-  } catch (err) {
+  } catch (err: unknown) {
     console.error(err);
   }
 };
 
-const updateEmployee = async (req, res) => {
+const updateEmployee = async (req: Request, res: Response) => {
   if (!req?.body?.id) {
     return res.status(400).json({
       message: "ID parameter is required",
@@ -44,7 +45,7 @@ const updateEmployee = async (req, res) => {
   res.json(result);
 };
 
-const deleteEmployee = async (req, res) => {
+const deleteEmployee = async (req: Request, res: Response) => {
   if (!req?.body?.id) {
     return res.status(400).json({
       message: "Employee ID is required",
@@ -61,7 +62,7 @@ const deleteEmployee = async (req, res) => {
   res.json(result);
 };
 
-const getEmployee = async (req, res) => {
+const getEmployee = async (req: Request, res: Response) => {
   if (!req?.params?.id) {
     return res.status(400).json({
       message: "Employee ID is required",
@@ -77,10 +78,10 @@ const getEmployee = async (req, res) => {
   res.json(employee);
 };
 
-module.exports = {
-  getAllEmployees,
+export {
   createNewEmployee,
-  updateEmployee,
-  deleteEmployee,
+  getAllEmployees,
   getEmployee,
+  deleteEmployee,
+  updateEmployee,
 };
