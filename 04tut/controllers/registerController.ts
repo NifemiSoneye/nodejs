@@ -1,7 +1,8 @@
-const User = require("../model/User");
-const bcrypt = require("bcrypt");
-const handleNewUser = async (req, res) => {
-  const { user, pwd } = req.body;
+import User from "../model/User";
+import { Request, Response } from "express";
+import bcrypt from "bcrypt";
+const handleNewUser = async (req: Request, res: Response) => {
+  const { user, pwd }: Record<string, string> = req.body;
   if (!user || !pwd)
     return res
       .status(400)
@@ -11,7 +12,7 @@ const handleNewUser = async (req, res) => {
   if (duplicate) return res.sendStatus(409);
   try {
     //encrypt password
-    const hashedPwd = await bcrypt.hash(pwd, 10);
+    const hashedPwd: string = await bcrypt.hash(pwd, 10);
     //create store new user
     const result = await User.create({
       username: user,
@@ -27,10 +28,10 @@ const handleNewUser = async (req, res) => {
 
     console.log(result);
     res.status(201).json({ success: `New User ${user} created!` });
-  } catch (err) {
-    console.error("Error:", err); // Change this to show full error
-    res.status(500).json({ message: err.message });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : "An error occured";
+    res.status(500).json({ message });
   }
 };
 
-module.exports = { handleNewUser };
+export { handleNewUser };
