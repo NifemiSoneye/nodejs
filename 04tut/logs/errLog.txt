@@ -24,3 +24,12 @@
 20260312	11:04:17	3b925efa-71c4-4e14-9ae9-4a074528e42e	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
 20260312	11:04:33	8ae9b3eb-3090-4eaf-8ab7-186a4eea1cf8	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
 20260312	11:04:34	c7f9a8d9-ee0a-4a51-8912-1cf2ca352cd4	 MongoServerSelectionError : getaddrinfo ENOTFOUND ac-rgtfplb-shard-00-00.zf7jmco.mongodb.net
+20260316	11:29:22	3d50bedb-3d8e-4317-bdba-e5af5722cab7	 Error : Not allowed by CORS
+20260316	11:29:22	d67e9143-1deb-4b98-9b0d-74b350233672	 Error : Not allowed by CORS
+20260316	11:42:55	a06d90d3-3696-4135-94f0-754376e3ad54	 Error : Not allowed by CORS
+20260316	11:43:04	58d9ce09-1119-4ee1-829a-acebcb6c18cc	 Error : Not allowed by CORS
+20260316	11:43:28	404815ff-8fac-48c2-a798-da4ff7342eed	 Error : Not allowed by CORS
+20260316	11:47:16	aa8213b4-9c4e-4e49-aa3f-a593ddc188ad	 TypeError : Cannot read properties of undefined (reading 'username')
+20260316	11:47:16	82520b10-4d85-4953-bd45-ff3ae99431d7	 TypeError : Cannot read properties of undefined (reading 'username')
+20260316	11:50:27	667be0aa-db45-42e0-ba28-0f9f1cd6c90f	 TypeError : Cannot read properties of undefined (reading 'username')
+20260316	11:50:27	f39d21ce-8d50-4153-b2fe-558536b5560a	 TypeError : Cannot read properties of undefined (reading 'username')
