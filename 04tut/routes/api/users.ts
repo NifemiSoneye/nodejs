@@ -10,7 +10,8 @@ const router = express.Router();
 
 router
   .route("/")
-  .get(verifyRoles(ROLES_LIST.Admin), getAllUsers)
+  /* .get(verifyRoles(ROLES_LIST.Admin), getAllUsers) */
+  .get(getAllUsers)
   .delete(verifyRoles(ROLES_LIST.Admin), deleteUser);
 
 router.route("/:id").get(verifyRoles(ROLES_LIST.Admin), getUser);
