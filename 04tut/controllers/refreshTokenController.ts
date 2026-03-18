@@ -7,7 +7,10 @@ const handleRefreshToken = async (req: Request, res: Response) => {
   if (!cookies?.jwt) return res.sendStatus(401);
   console.log(cookies.jwt);
   const refreshToken = cookies.jwt;
+  res.clearCookie("jwt", { httpOnly: true, sameSite: "lax", secure: false });
   const foundUser = await User.findOne({ refreshToken }).exec();
+
+  //Detected refresh token reuse
   if (!foundUser) return res.sendStatus(403); // forbidden
   //evaluate jwt
   jwt.verify(

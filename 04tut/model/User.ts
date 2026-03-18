@@ -24,7 +24,7 @@ const userSchema = new Schema<IUserDocument>({
     type: String,
     required: true,
   },
-  refreshToken: String,
+  refreshToken: [String],
 });
 
 export default mongoose.model<IUserDocument>("User", userSchema);

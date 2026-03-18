@@ -13,5 +13,5 @@ export interface IUser {
   username: string;
   roles: IRole;
   password: string;
-  refreshToken?: string;
+  refreshToken?: string[];
 }
