@@ -21,6 +21,7 @@ const handleRefreshToken = async (req: Request, res: Response) => {
       ) => {
         if (!decoded || typeof decoded === "string") return res.sendStatus(403);
         if (err) return res.sendStatus(403);
+        console.log("attempted refresh token reuse");
         const hackedUser = await User.findOne({
           username: decoded.username,
         }).exec();
@@ -44,13 +45,15 @@ const handleRefreshToken = async (req: Request, res: Response) => {
       decoded: jwt.JwtPayload | string | undefined,
     ) => {
       if (err) {
+        console.log("expired refresh token");
         foundUser.refreshToken = [...newRefreshTokenArray];
         const result = await foundUser.save();
+        console.log(result);
       }
       const payload = decoded as {
-        UserInfo: { username: string; roles: number[] };
+        username: string;
       };
-      if (err || foundUser.username != payload.UserInfo.username)
+      if (err || foundUser.username != payload.username)
         return res.sendStatus(403);
 
       // Refresh token was still valid
@@ -58,8 +61,8 @@ const handleRefreshToken = async (req: Request, res: Response) => {
       const accessToken = jwt.sign(
         {
           UserInfo: {
-            username: payload.UserInfo.username,
-            roles: payload.UserInfo.roles,
+            username: payload.username,
+            roles: roles,
           },
         },
         process.env.ACCESS_TOKEN_SECRET as string,
@@ -69,7 +72,7 @@ const handleRefreshToken = async (req: Request, res: Response) => {
       const newRefreshToken = jwt.sign(
         { username: foundUser.username },
         process.env.REFRESH_TOKEN_SECRET as string,
-        { expiresIn: "15m" },
+        { expiresIn: "1d" },
       );
       //Saving refreshToken with current user
       foundUser.refreshToken = [...newRefreshTokenArray, newRefreshToken];

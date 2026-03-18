@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 
 const handleLogin = async (req: Request, res: Response) => {
   const cookies = req.cookies;
+  console.log(`cookies available at login : ${JSON.stringify(cookies)}`);
   const { user, pwd }: { user: string; pwd: string } = req.body;
   if (!user || !pwd)
     return res
@@ -25,24 +26,33 @@ const handleLogin = async (req: Request, res: Response) => {
         },
       },
       process.env.ACCESS_TOKEN_SECRET as string,
-      { expiresIn: "60s" },
+      { expiresIn: "10s" },
     );
     const newRefreshToken = jwt.sign(
       { username: foundUser.username },
       process.env.REFRESH_TOKEN_SECRET as string,
-      { expiresIn: "15m" },
+      { expiresIn: "1d" },
     );
 
-    const newRefreshTokenArray = !cookies?.jwt
+    let newRefreshTokenArray = !cookies?.jwt
       ? (foundUser.refreshToken ?? [])
       : (foundUser.refreshToken?.filter((rt) => rt !== cookies.jwt) ?? []);
 
-    if (cookies.jwt)
+    if (cookies.jwt) {
+      const refreshToken = cookies.jwt;
+      const foundToken = await User.findOne({ refreshToken }).exec();
+
+      if (!foundToken) {
+        console.log("attempted refresh token reuse at login");
+
+        newRefreshTokenArray = [];
+      }
       res.clearCookie("jwt", {
         httpOnly: true,
         sameSite: "lax",
         secure: false,
       });
+    }
     //Saving refreshToken with current user
     foundUser.refreshToken = [...newRefreshTokenArray, newRefreshToken];
     const result = await foundUser.save();
